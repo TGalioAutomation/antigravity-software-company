@@ -47,7 +47,7 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
 | **`planner`** | `flash` | Native | Phân rã mốc triển khai 4 pha (MVS $\rightarrow$ Core $\rightarrow$ Edge Cases $\rightarrow$ Polish). |
 | **`code-architect`** | `pro` | Native | Thiết kế cấu trúc hệ thống, data schemas, API contracts và Architecture Decision Records (ADR). |
 | **`clean-room-builder`** | `pro` | Native | Lập trình tính năng từ đặc tả sạch, tuân thủ nguyên tắc sửa đổi tối thiểu (Surgical Edits). |
-| **`jev`** | `flash` | **OpenRouter Duy Nhất** | Chạy `/Users/apexdev/.local/bin/jev` (`typesafe/jev-1.13`) làm cổng thẩm định chất lượng tối cao. |
+| **`jev`** | `flash` | **OpenRouter Duy Nhất** | Chạy `jev` (`typesafe/jev-1.13`) làm cổng thẩm định chất lượng tối cao. |
 | **`python-reviewer`** | `flash` | Native | Kiểm tra PEP 8, strict type hints, async/await correctness, cấm bare `except: pass`. |
 | **`typescript-reviewer`** | `flash` | Native | Kiểm tra Type soundness, cấm ép kiểu `any` vô căn cứ, bắt floating promises. |
 | **`react-reviewer`** | `flash` | Native | Kiểm tra hook dependencies, RSC server/client boundaries, re-render performance. |
@@ -70,7 +70,7 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
    - Chỉ **4/17 sub-agents (23.5%)** cốt lõi được cấu hình tầng `model: pro` (`MODEL_TIER_PRO`).
 2. **Không Rò Rỉ API Key**:
    - 100% các sub-agents thông thường chạy **hoàn toàn Native** trên Antigravity (0 đồng chi phí ngoài).
-   - `OPENROUTER_API_KEY` được bảo lưu duy nhất cho CLI `/Users/apexdev/.local/bin/jev` chạy model `typesafe/jev-1.13` để thẩm định chất lượng đặc tả/prompt.
+   - `OPENROUTER_API_KEY` được bảo lưu duy nhất cho CLI `jev` chạy model `typesafe/jev-1.13` để thẩm định chất lượng đặc tả/prompt.
 
 ---
 

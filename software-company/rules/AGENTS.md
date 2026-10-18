@@ -95,8 +95,8 @@ When re-implementing, cloning, refactoring, or porting critical components, all 
    - Inspects legacy or reference codebases in read-only mode.
    - Extracts behavioral requirements, state transitions, edge cases, and invariants into `clean-room/SPEC.md`.
    - Every rule MUST provide verifiable evidence: `Source: [file:line]` and `Proof: [behavioral observation]`. Guesswork words (*"probably"*, *"usually"*, *"seems"*) are strictly prohibited.
-2. **Jev Gatekeeper Audit (`jev` — Calling `/Users/apexdev/.local/bin/jev`)**:
-   - Executes `/Users/apexdev/.local/bin/jev --audit clean-room/SPEC.md` against model `typesafe/jev-1.13`.
+2. **Jev Gatekeeper Audit (`jev` — Calling `jev`)**:
+   - Executes `jev --audit clean-room/SPEC.md` against model `typesafe/jev-1.13`.
    - Evaluates rules against strict Noul metric thresholds:
      - `Evidence Score >= 0.50`
      - `Deterministic Score >= 0.50`
@@ -180,5 +180,5 @@ Total Squad: 17 Sub-Agents
 The software company maintains an impenetrable security perimeter regarding API credentials and external service communications:
 1. **Native Platform Execution**: 100% of all agent reasoning, coding, review, and orchestration turns execute exclusively on internal Antigravity native models.
 2. **Absolute OpenRouter Prohibition**: No sub-agent prompt, script, hook, or automation workflow is permitted to make HTTP requests to external OpenRouter endpoints or transmit prompts to external AI gateways.
-3. **Sole Authorized Exception**: The external gatekeeper CLI `/Users/apexdev/.local/bin/jev` is the ONLY binary authorized to consume `OPENROUTER_API_KEY` for the sole purpose of invoking `typesafe/jev-1.13` during specification audits.
+3. **Sole Authorized Exception**: The external gatekeeper CLI `jev` is the ONLY binary authorized to consume `OPENROUTER_API_KEY` for the sole purpose of invoking `typesafe/jev-1.13` during specification audits.
 4. **Secret Protection**: API keys, credentials, and authentication tokens must never be written into source files, prompts, logs, or unencrypted artifacts.

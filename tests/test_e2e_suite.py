@@ -12,6 +12,7 @@ Exhaustively verifies all 25 features from PROJECT.md across 4 testing tiers:
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -29,7 +30,7 @@ AGENTS_DIR = PLUGIN_DIR / "agents"
 RULES_FILE = PLUGIN_DIR / "rules" / "AGENTS.md"
 SKILLS_DIR = PLUGIN_DIR / "skills"
 ASSETS_DIR = PLUGIN_DIR / "assets"
-JEV_BIN = Path("/Users/apexdev/.local/bin/jev")
+JEV_BIN = Path(os.environ.get("JEV_BIN") or shutil.which("jev") or (Path.home() / ".local" / "bin" / "jev"))
 
 # Squad Definitions
 PRO_AGENTS = {
@@ -339,7 +340,7 @@ class TestTier2BoundaryAndNegativeCases(unittest.TestCase):
     def test_12_jev_gate_negative_code_leak_rejection(self):
         """F-19 & F-25 (Negative): Jev gate rejects rules containing copied code syntax."""
         if not JEV_BIN.exists():
-            self.skipTest("Jev binary not found at /Users/apexdev/.local/bin/jev")
+            self.skipTest("Jev binary not found at jev")
 
         # Statement leaking Python code syntax
         leaky_prompt = "RULE-CODE-LEAK: text[0 : max_length - len(suffix)] + suffix"
@@ -361,7 +362,7 @@ class TestTier2BoundaryAndNegativeCases(unittest.TestCase):
     def test_13_jev_gate_negative_missing_evidence_rejection(self):
         """F-19 & F-25 (Negative): Jev gate rejects rules lacking verifiable evidence."""
         if not JEV_BIN.exists():
-            self.skipTest("Jev binary not found at /Users/apexdev/.local/bin/jev")
+            self.skipTest("Jev binary not found at jev")
 
         # Statement lacking evidence and using guesswork
         unverified_prompt = "RULE-UNVERIFIED: We probably need to return 42 when the input is null because it seems reasonable."

@@ -11,7 +11,7 @@ Validates:
    - Prohibited OpenRouter URLs and third-party AI endpoints
    - Prompt Defense Baseline presence in all 17 agent prompts
    - Strict Model Tier partitioning (4 Pro, 13 Flash)
-2. Empirical Mutant Rejection by Jev Gatekeeper (/Users/apexdev/.local/bin/jev):
+2. Empirical Mutant Rejection by Jev Gatekeeper (jev):
    - Mutant 1: Leaked source code / implementation snippet
    - Mutant 2: Missing evidence / REA guesswork
    - Mutant 3: Non-deterministic boundary conditions
@@ -42,7 +42,7 @@ PLUGIN_DIR = Path.home() / ".gemini" / "config" / "plugins" / "software-company"
 AGENTS_DIR = PLUGIN_DIR / "agents"
 RULES_DIR = PLUGIN_DIR / "rules"
 SKILLS_DIR = PLUGIN_DIR / "skills"
-JEV_BIN = Path("/Users/apexdev/.local/bin/jev")
+JEV_BIN = Path(os.environ.get("JEV_BIN") or shutil.which("jev") or (Path.home() / ".local" / "bin" / "jev"))
 
 PRO_AGENTS = {
     "chief-of-staff",
@@ -389,7 +389,7 @@ try:
 
     # 2.4 Control Baseline: Evidenced & Deterministic Spec Passes
     control_spec = temp_test_dir / "control_spec.md"
-    shutil.copy(Path("/Users/apexdev/teamwork_projects/software_company_ecc/sample_spec.md"), control_spec)
+    shutil.copy(Path(__file__).resolve().parent / "sample_spec.md", control_spec)
 
     print("\n  -> Testing Control Specification (Valid Sample Spec) against Jev ...")
     t0 = time.time()

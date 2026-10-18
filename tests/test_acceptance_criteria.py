@@ -18,9 +18,9 @@ Validates the full completion of the Software Company Plugin against:
      - Protobuf translation of model to MODEL_TIER_PRO / MODEL_TIER_FLASH
   5. Security & Zero OpenRouter Leakage
      - Zero openrouter.ai URLs or hardcoded keys in plugin files
-     - OPENROUTER_API_KEY reserved strictly for /Users/apexdev/.local/bin/jev
+     - OPENROUTER_API_KEY reserved strictly for jev
   6. Live Jev Audit against typesafe/jev-1.13
-     - Executes /Users/apexdev/.local/bin/jev --audit sample_spec.md
+     - Executes jev --audit sample_spec.md
      - Asserts exit code 0, APPROVED verdict, and noul thresholds (Evidence>=0.50, Det>=0.50, Clean-Room>=0.60)
      - Validates generation of sanitized SPEC.approved.md
 """
@@ -28,6 +28,7 @@ Validates the full completion of the Software Company Plugin against:
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -43,7 +44,7 @@ PLUGIN_JSON = PLUGIN_DIR / "plugin.json"
 AGENTS_DIR = PLUGIN_DIR / "agents"
 RULES_FILE = PLUGIN_DIR / "rules" / "AGENTS.md"
 SKILLS_DIR = PLUGIN_DIR / "skills"
-JEV_BIN = Path("/Users/apexdev/.local/bin/jev")
+JEV_BIN = Path(os.environ.get("JEV_BIN") or shutil.which("jev") or (Path.home() / ".local" / "bin" / "jev"))
 
 # Expected Agent Squad
 PRO_AGENTS = {

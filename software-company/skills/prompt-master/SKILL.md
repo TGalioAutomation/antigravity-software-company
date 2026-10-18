@@ -13,7 +13,7 @@ description: "Always-On Prompt Compiler, Evaluator, and Model Router. Uses Googl
 2. **Prompt Quality Gatekeeper & Router (`typesafe/jev-router`)**:
    - **`typesafe/jev-router`** evaluates the prompt written by Gemini 4 Argon against the 6 Recency Zone gates (Target syntax, Primacy 30% lock, MUST/NEVER signal strength, Scope/Stop conditions, Zero token waste, Attempt-1 readiness).
    - If `typesafe/jev-router` scores the prompt `FAIL` (`< 8.0/10`), Gemini 4 Argon rewrites it using Jev's feedback until it achieves `PASS`.
-   - CLI executable available system-wide: `/Users/apexdev/.local/bin/prompt-master "<raw request>"`
+   - CLI executable available system-wide: `prompt-master "<raw request>"`
 3. **Best-Model Dispatch**:
    - Once approved by `typesafe/jev-router`, the sharpened prompt is sent to the best model for execution (`typesafe/jev-router`, `Opus 5.5`, `Gemini 4 Argon`, `Sonnet 5.5`, or `Haiku 5.5`).
 

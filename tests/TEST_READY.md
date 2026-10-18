@@ -13,8 +13,8 @@ The E2E Testing Track has designed, authored, and verified the comprehensive mul
 
 All test suites follow an **opaque-box, requirement-driven methodology** with zero facades, zero hardcoding, and direct integration with live external systems:
 1. **ConnectRPC Dynamic Discovery**: Communicates live over protocol buffers with the active Antigravity Language Server (`LanguageServerService/GetAllPlugins`).
-2. **Authoritative Jev Gatekeeper**: Invokes `/Users/apexdev/.local/bin/jev` against model `typesafe/jev-1.13` on the OpenRouter Decisions API (`/api/alpha/decisions`), validating dual-gate criteria (`choice == APPROVED` and `noul` continuous score thresholds).
-3. **Security & Zero OpenRouter Leakage**: Recursively verifies that zero OpenRouter API calls or keys leak into the plugin, preserving `OPENROUTER_API_KEY` solely for `/Users/apexdev/.local/bin/jev`.
+2. **Authoritative Jev Gatekeeper**: Invokes `jev` against model `typesafe/jev-1.13` on the OpenRouter Decisions API (`/api/alpha/decisions`), validating dual-gate criteria (`choice == APPROVED` and `noul` continuous score thresholds).
+3. **Security & Zero OpenRouter Leakage**: Recursively verifies that zero OpenRouter API calls or keys leak into the plugin, preserving `OPENROUTER_API_KEY` solely for `jev`.
 
 ---
 
@@ -22,11 +22,11 @@ All test suites follow an **opaque-box, requirement-driven methodology** with ze
 
 | Artifact | Location | Purpose |
 | :--- | :--- | :--- |
-| **`TEST_INFRA.md`** | `/Users/apexdev/teamwork_projects/software_company_ecc/TEST_INFRA.md` | Comprehensive testing philosophy, 4-tier methodology, 25-feature coverage inventory, and thresholds. |
-| **`sample_spec.md`** | `/Users/apexdev/teamwork_projects/software_company_ecc/sample_spec.md` | Authoritative clean-room behavioral specification with `Source` and `Proof` (RULE-001 & RULE-002), verified 100% APPROVED by `typesafe/jev-1.13`. |
-| **`test_acceptance_criteria.py`** | `/Users/apexdev/teamwork_projects/software_company_ecc/test_acceptance_criteria.py` | Standalone acceptance criteria validator covering all 6 mandatory gates. |
-| **`test_e2e_suite.py`** | `/Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py` | Exhaustive 21-test multi-tier test framework across Tiers 1-4 with negative and boundary fixtures. |
-| **`TEST_READY.md`** | `/Users/apexdev/teamwork_projects/software_company_ecc/TEST_READY.md` | This test readiness summary and operational runbook. |
+| **`TEST_INFRA.md`** | `~/teamwork_projects/software_company_ecc/TEST_INFRA.md` | Comprehensive testing philosophy, 4-tier methodology, 25-feature coverage inventory, and thresholds. |
+| **`sample_spec.md`** | `~/teamwork_projects/software_company_ecc/sample_spec.md` | Authoritative clean-room behavioral specification with `Source` and `Proof` (RULE-001 & RULE-002), verified 100% APPROVED by `typesafe/jev-1.13`. |
+| **`test_acceptance_criteria.py`** | `~/teamwork_projects/software_company_ecc/test_acceptance_criteria.py` | Standalone acceptance criteria validator covering all 6 mandatory gates. |
+| **`test_e2e_suite.py`** | `~/teamwork_projects/software_company_ecc/test_e2e_suite.py` | Exhaustive 21-test multi-tier test framework across Tiers 1-4 with negative and boundary fixtures. |
+| **`TEST_READY.md`** | `~/teamwork_projects/software_company_ecc/TEST_READY.md` | This test readiness summary and operational runbook. |
 
 ---
 
@@ -35,7 +35,7 @@ All test suites follow an **opaque-box, requirement-driven methodology** with ze
 ### 3.1. Acceptance Criteria Verification
 Validates the 6 mandatory acceptance criteria defined in `ORIGINAL_REQUEST.md`:
 ```bash
-python3 /Users/apexdev/teamwork_projects/software_company_ecc/test_acceptance_criteria.py
+python3 ~/teamwork_projects/software_company_ecc/test_acceptance_criteria.py
 ```
 **Exit Codes**:
 - `0`: All 6 acceptance gates passed.
@@ -44,21 +44,21 @@ python3 /Users/apexdev/teamwork_projects/software_company_ecc/test_acceptance_cr
 ### 3.2. Comprehensive Multi-Tier E2E Test Suite
 Runs all 21 test cases across Tiers 1, 2, 3, and 4:
 ```bash
-python3 /Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py
+python3 ~/teamwork_projects/software_company_ecc/test_e2e_suite.py
 ```
 **Options**:
 - Run specific tier:
   ```bash
-  python3 -m unittest /Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier1SmokeAndContract
-  python3 -m unittest /Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier2BoundaryAndNegativeCases
-  python3 -m unittest /Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier3CrossFeatureIntegration
-  python3 -m unittest /Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier4RealWorldScenarios
+  python3 -m unittest ~/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier1SmokeAndContract
+  python3 -m unittest ~/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier2BoundaryAndNegativeCases
+  python3 -m unittest ~/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier3CrossFeatureIntegration
+  python3 -m unittest ~/teamwork_projects/software_company_ecc/test_e2e_suite.py -k TestTier4RealWorldScenarios
   ```
 
 ### 3.3. Direct Live Jev Specification Audit
 Audits `sample_spec.md` against OpenRouter `typesafe/jev-1.13`:
 ```bash
-/Users/apexdev/.local/bin/jev --audit /Users/apexdev/teamwork_projects/software_company_ecc/sample_spec.md
+jev --audit ~/teamwork_projects/software_company_ecc/sample_spec.md
 ```
 **Output Artifacts Generated**:
 - `jev-audit.md`: Full audit trail with continuous `noul` metrics.

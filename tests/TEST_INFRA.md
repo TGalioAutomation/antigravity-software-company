@@ -38,7 +38,7 @@ The testing infrastructure for the **Enterprise AI Software Company Plugin** adh
    - Every single test case maps directly to a discrete requirement in `ORIGINAL_REQUEST.md` (R1: Sub-agent conversion, R2: Extreme cost-optimization, R3: Automated workflow & verification) and `PROJECT.md` Features 1 through 25.
 
 3. **Authoritative External Oracle**:
-   - Specification audit verdicts are verified against the live authoritative oracle: `/Users/apexdev/.local/bin/jev` invoking the OpenRouter Decisions API with model `typesafe/jev-1.13`.
+   - Specification audit verdicts are verified against the live authoritative oracle: `jev` invoking the OpenRouter Decisions API with model `typesafe/jev-1.13`.
    - The test runner verifies that the gate strictly requires both categorical approval (`choice == "APPROVED"`) and three independent `noul` continuous score thresholds (`has_hard_evidence >= 0.50`, `is_deterministic >= 0.50`, `is_clean_room_safe >= 0.60`).
 
 4. **Progressive Testability & Graceful Degradation**:
@@ -73,9 +73,9 @@ All 25 features established in `PROJECT.md` are mapped across the 4 testing tier
 | **F-16** | Agent: `performance-optimizer`| M2 | Frontmatter valid, `model: flash` | Read-only tool restriction | Profiling rubric compliance | Latency bottleneck identification |
 | **F-17** | Agent: `silent-failure-hunter`| M2 | Frontmatter valid, `model: flash` | Read-only tool restriction | Exception rubric compliance | Swallowed error detection |
 | **F-18** | Agent: `e2e-runner` | M2 | Frontmatter valid, `model: flash` | Exit code 0 vs 1 evaluation | Execution tools (`run_command`) | Automated test execution loop |
-| **F-19** | Agent: `jev` | M2 | Frontmatter valid, `model: flash` | Binary existence & execute perm | Execution of `/Users/apexdev/.local/bin/jev` | Dual-gate specification audit |
+| **F-19** | Agent: `jev` | M2 | Frontmatter valid, `model: flash` | Binary existence & execute perm | Execution of `jev` | Dual-gate specification audit |
 | **F-20** | Model Tier Segregation | M2 | Exactly 4 Pro, 13 Flash | Misplaced `modelTier:` key check | Language Server protobuf translation | Cost threshold >= 76.5% flash (>= 12/17) |
-| **F-21** | Zero OpenRouter Leakage | M2 | No hardcoded keys | Regex scanning `sk-or-v1-*` | No OpenRouter API URLs in plugins | Exclusivity of `/Users/apexdev/.local/bin/jev` |
+| **F-21** | Zero OpenRouter Leakage | M2 | No hardcoded keys | Regex scanning `sk-or-v1-*` | No OpenRouter API URLs in plugins | Exclusivity of `jev` |
 | **F-22** | Company Governance Rules | M3 | `rules/AGENTS.md` exists | File size <= 24,000 bytes cap | Ingestion as `plugin_rule` memory | Always-on governance enforcement |
 | **F-23** | Shared Workflow Skill | M3 | `skills/*/SKILL.md` exists | Frontmatter `name` & `description` | Preload resolution across agents | Progressive disclosure validation |
 | **F-24** | Dual Track E2E Test Suite | E2E | Runner executable & testable | Exception trapping & reporting | Cross-tier test aggregation | Production readiness signoff |
@@ -87,7 +87,7 @@ All 25 features established in `PROJECT.md` are mapped across the 4 testing tier
 
 ### 3.1. Directory & File Organization
 ```
-/Users/apexdev/teamwork_projects/software_company_ecc/
+~/teamwork_projects/software_company_ecc/
 ├── TEST_INFRA.md                   # This infrastructure document
 ├── TEST_READY.md                   # Readiness summary & runbook
 ├── sample_spec.md                  # Authoritative clean-room behavioral spec for live audit
@@ -105,13 +105,13 @@ All 25 features established in `PROJECT.md` are mapped across the 4 testing tier
 2. **Execution Commands**:
    ```bash
    # Run Acceptance Criteria Verification
-   python3 /Users/apexdev/teamwork_projects/software_company_ecc/test_acceptance_criteria.py
+   python3 ~/teamwork_projects/software_company_ecc/test_acceptance_criteria.py
 
    # Run Exhaustive Multi-Tier E2E Test Suite
-   python3 /Users/apexdev/teamwork_projects/software_company_ecc/test_e2e_suite.py
+   python3 ~/teamwork_projects/software_company_ecc/test_e2e_suite.py
 
    # Run Direct Live Jev Audit
-   /Users/apexdev/.local/bin/jev --audit /Users/apexdev/teamwork_projects/software_company_ecc/sample_spec.md
+   jev --audit ~/teamwork_projects/software_company_ecc/sample_spec.md
    ```
 
 3. **Pass/Fail Semantics**:
@@ -151,8 +151,8 @@ All 25 features established in `PROJECT.md` are mapped across the 4 testing tier
 
 ### 4.4. Tier 4: Real-World Application Scenarios
 - **Criteria**:
-  - Full clean-room specification audit must be executed using `/Users/apexdev/.local/bin/jev --audit sample_spec.md` against OpenRouter model `typesafe/jev-1.13`.
+  - Full clean-room specification audit must be executed using `jev --audit sample_spec.md` against OpenRouter model `typesafe/jev-1.13`.
   - Jev audit must return exit code `0` with final verdict `APPROVED`.
   - Continuous scores must satisfy `has_hard_evidence >= 0.50`, `is_deterministic >= 0.50`, and `is_clean_room_safe >= 0.60`.
   - Sanitized `SPEC.approved.md` must be generated with all `Source` and `Proof` sections stripped clean.
-  - Recursive security scan across the entire plugin directory must confirm zero OpenRouter API calls, zero hardcoded keys (`sk-or-v1-*`), and zero external HTTP calls outside `/Users/apexdev/.local/bin/jev`.
+  - Recursive security scan across the entire plugin directory must confirm zero OpenRouter API calls, zero hardcoded keys (`sk-or-v1-*`), and zero external HTTP calls outside `jev`.

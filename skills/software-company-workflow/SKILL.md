@@ -119,7 +119,7 @@ When rebuilding, cloning, or refactoring existing modules:
                             │
                             ▼
                   Step 2: Jev Evidence Audit
-             (/Users/apexdev/.local/bin/jev --audit)
+             (jev --audit)
                             │
                ┌────────────┴────────────┐
                ▼                         ▼
@@ -145,7 +145,7 @@ When rebuilding, cloning, or refactoring existing modules:
    - Authors `clean-room/SPEC.md` detailing every behavior, invariant, and error branch.
    - Every rule MUST have `Source: [file:line]` and `Proof: [factual observation]`.
 2. **Step 2 — Jev Gatekeeper Audit**:
-   - Run `/Users/apexdev/.local/bin/jev --audit clean-room/SPEC.md`.
+   - Run `jev --audit clean-room/SPEC.md`.
    - Must achieve:
      - `Evidence Score >= 0.50`
      - `Deterministic Score >= 0.50`
@@ -211,7 +211,7 @@ Code Changes
    - Use condition-based auto-waiting; hardcoded delays (`sleep`, `waitForTimeout`) are forbidden.
    - Quarantine flaky tests with `test.fixme()` and document the tracking ticket.
 2. **Final Oracle Verification (`jev`)**:
-   - Execute `/Users/apexdev/.local/bin/jev` on final specifications or critical requirements to confirm 100% determinism.
+   - Execute `jev` on final specifications or critical requirements to confirm 100% determinism.
 
 ---
 
@@ -260,4 +260,4 @@ Flash Tier (13 Agents) : planner, refactor-cleaner, build-error-resolver, python
                          e2e-runner, jev
 ```
 
-All 17 sub-agents execute natively on internal Antigravity models. The standalone external binary `/Users/apexdev/.local/bin/jev` is the sole tool authorized for external verification calls.
+All 17 sub-agents execute natively on internal Antigravity models. The standalone external binary `jev` is the sole tool authorized for external verification calls.

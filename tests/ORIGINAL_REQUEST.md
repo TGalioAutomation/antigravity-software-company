@@ -30,7 +30,7 @@ Reference: https://github.com/affaan-m/ecc
   14. `performance-optimizer`: Phân tích profiling, bottle-neck I/O và tối ưu hóa tài nguyên.
   15. `silent-failure-hunter`: Rà soát các lỗi ngầm (swallowed exceptions, unhandled promises, edge cases).
   16. `e2e-runner`: Tự động viết và chạy kiểm thử end-to-end.
-  17. `jev`: Cổng thẩm định chất lượng độc lập, kiểm tra determinism & evidence qua `/Users/apexdev/.local/bin/jev`.
+  17. `jev`: Cổng thẩm định chất lượng độc lập, kiểm tra determinism & evidence qua `jev`.
 
 ### R2. Tối ưu hóa chi phí vận hành triệt để (Extreme Cost-Optimization)
 - **Quy tắc phân tầng model**:
@@ -39,7 +39,7 @@ Reference: https://github.com/affaan-m/ecc
 - **Quy tắc bảo toàn API Key**:
   - 100% các sub-agents trên đều chạy hoàn toàn trên Antigravity native models nội bộ.
   - Tuyệt đối không dùng `OPENROUTER_API_KEY` cho việc tạo prompt hay chạy các sub-agents thông thường.
-  - `OPENROUTER_API_KEY` được bảo lưu duy nhất cho CLI `/Users/apexdev/.local/bin/jev` chạy model `typesafe/jev-1.13` để thẩm định chất lượng đặc tả/prompt.
+  - `OPENROUTER_API_KEY` được bảo lưu duy nhất cho CLI `jev` chạy model `typesafe/jev-1.13` để thẩm định chất lượng đặc tả/prompt.
 
 ### R3. Quy trình làm việc tự động (Software Company Workflow & Verification)
 - Tạo tài liệu vận hành và rule chuẩn trong `rules/AGENTS.md` hướng dẫn cách các sub-agents phối hợp theo luồng công việc khép kín.
@@ -53,5 +53,5 @@ Reference: https://github.com/affaan-m/ecc
 - [ ] Kiểm tra phân tầng model: Tối thiểu 12/17 agents được cấu hình ở tầng `flash` để tiết kiệm tài nguyên.
 
 ### Kiểm soát Chi phí & Đảm bảo Chất lượng qua Jev
-- [ ] Xác nhận không có bất kỳ cấu hình hay script nào trong plugin gửi request ra OpenRouter ngoại trừ lệnh gọi `/Users/apexdev/.local/bin/jev`.
-- [ ] Chạy script kiểm thử tự động xác minh toàn bộ hệ thống agents và thực thi thành công một lần audit mẫu qua `/Users/apexdev/.local/bin/jev` với model `typesafe/jev-1.13`.
+- [ ] Xác nhận không có bất kỳ cấu hình hay script nào trong plugin gửi request ra OpenRouter ngoại trừ lệnh gọi `jev`.
+- [ ] Chạy script kiểm thử tự động xác minh toàn bộ hệ thống agents và thực thi thành công một lần audit mẫu qua `jev` với model `typesafe/jev-1.13`.

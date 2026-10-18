@@ -73,7 +73,7 @@ The squad comprises 17 purpose-built sub-agents registered in Antigravity:
 | 14 | `performance-optimizer`| `flash` | Algorithmic complexity, latency bottlenecks, memory profiling |
 | 15 | `silent-failure-hunter`| `flash` | Swallowed exceptions, unhandled promises, edge-case null checks |
 | 16 | `e2e-runner` | `flash` | Automated test suite execution, integration verification |
-| 17 | `jev` | `flash` | Operational wrapper for `/Users/apexdev/.local/bin/jev` CLI running `typesafe/jev-1.13` |
+| 17 | `jev` | `flash` | Operational wrapper for `jev` CLI running `typesafe/jev-1.13` |
 
 ### Model Tiering Economics
 - **Flash Tier**: 13 agents (76.5%) handling high-frequency planning, code reviews, dead code pruning, error resolution, and test runner workflows.
@@ -86,7 +86,7 @@ The squad comprises 17 purpose-built sub-agents registered in Antigravity:
 
 1. **Strategic Inception**: `chief-of-staff` receives the high-level product objective and dispatches `planner` to establish milestones.
 2. **Architecture & Contract Definition**: `code-architect` authors schemas and interfaces.
-3. **Specification Gate (Jev Audit)**: Specifications are checked by `jev` using `typesafe/jev-1.13` (`/Users/apexdev/.local/bin/jev --audit <spec>`). The milestone requires `APPROVED` status before code construction begins.
+3. **Specification Gate (Jev Audit)**: Specifications are checked by `jev` using `typesafe/jev-1.13` (`jev --audit <spec>`). The milestone requires `APPROVED` status before code construction begins.
 4. **Clean-Room Implementation**: `clean-room-builder` executes surgical modifications against approved contracts.
 5. **Multi-Discipline Review**: Targeted language reviewers (`python-reviewer`, `typescript-reviewer`, etc.), `security-reviewer`, and `performance-optimizer` evaluate the code changes.
 6. **Continuous Build & E2E Verification**: `build-error-resolver` handles any compilation faults, and `e2e-runner` confirms end-to-end acceptance tests pass.
@@ -96,5 +96,5 @@ The squad comprises 17 purpose-built sub-agents registered in Antigravity:
 ## 5. Security & Isolation Policy
 
 - **No OpenRouter Calls in Agent Code**: Sub-agents must not invoke OpenRouter APIs directly.
-- **Restricted CLI Access**: The `/Users/apexdev/.local/bin/jev` binary is the sole interface authorized to use `OPENROUTER_API_KEY` for specification audits.
+- **Restricted CLI Access**: The `jev` binary is the sole interface authorized to use `OPENROUTER_API_KEY` for specification audits.
 - **Least-Privilege Tooling**: Code reviewers possess read-only and task-inspection capabilities (`send_message`, `view_file`, `run_command`, `manage_task`), preventing unintended code modifications during review phases.

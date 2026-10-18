@@ -1,0 +1,13 @@
+{
+  "name": "software-company",
+  "displayName": "Enterprise AI Software Company",
+  "description": "Autonomous multi-agent enterprise software engineering organization with 17 specialized sub-agents.",
+  "version": "1.0.0",
+  "logo": "assets/logo.svg",
+  "disabled": false,
+  "suggestedPrompts": [
+    "Assemble software company leadership to plan and design a new service",
+    "Run clean-room implementation and verification on a core module",
+    "Audit technical specification and determinism via Jev gatekeeper"
+  ]
+}

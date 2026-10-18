@@ -1,10 +1,10 @@
 # Enterprise Software Company — Antigravity Agent Plugin
 
-Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng và đóng gói **hoàn toàn độc lập, khép kín (100% Standalone & Self-Contained)** cho Google Antigravity (và đồng bộ với Claude Code, Cursor, ZCode, OpenCode). Hệ thống tích hợp sẵn 17 sub-agents nòng cốt và bộ skills nội bộ mà **hoàn toàn không phụ thuộc vào bất kỳ thư viện hay repository bên ngoài nào**.
+An **Autonomous AI Software Engineering Organization** engineered and packaged as a **100% Standalone & Self-Contained** plugin for Google Antigravity (with cross-compatibility for Claude Code, Cursor, and OpenCode). The system bundles 17 core sub-agents and a self-contained skills library, operating with **zero runtime dependencies on external repositories or services**.
 
 ---
 
-## 1. Kiến Trúc & Cơ Cấu Tổ Chức (17 Sub-Agents)
+## 1. Architecture & Organizational Structure (17 Sub-Agents)
 
 ```
                   ┌───────────────────────────────────────────────┐
@@ -39,75 +39,76 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
                   └───────────────────────────────────────────────┘
 ```
 
-### Danh Sách 17 Sub-Agents & Phân Tầng Chi Phí:
+### Sub-Agent Roster & Tier Allocation
 
-| Sub-Agent | Model Tier | Chi phí | Ranh giới & Trọng tâm kiểm tra |
+| Sub-Agent | Model Tier | Runtime / Cost | Scope, Boundary & Review Focus |
 | :--- | :---: | :---: | :--- |
-| **`chief-of-staff`** | `pro` | Native | Tổng chỉ huy điều phối task, tiếp nhận yêu cầu cấp cao và phân rã nhiệm vụ. |
-| **`planner`** | `flash` | Native | Phân rã mốc triển khai 4 pha (MVS $\rightarrow$ Core $\rightarrow$ Edge Cases $\rightarrow$ Polish). |
-| **`code-architect`** | `pro` | Native | Thiết kế cấu trúc hệ thống, data schemas, API contracts và Architecture Decision Records (ADR). |
-| **`clean-room-builder`** | `pro` | Native | Lập trình tính năng từ đặc tả sạch, tuân thủ nguyên tắc sửa đổi tối thiểu (Surgical Edits). |
-| **`jev`** | `flash` | **OpenRouter Duy Nhất** | Chạy `jev` (`typesafe/jev-1.13`) làm cổng thẩm định chất lượng tối cao. |
-| **`python-reviewer`** | `flash` | Native | Kiểm tra PEP 8, strict type hints, async/await correctness, cấm bare `except: pass`. |
-| **`typescript-reviewer`** | `flash` | Native | Kiểm tra Type soundness, cấm ép kiểu `any` vô căn cứ, bắt floating promises. |
-| **`react-reviewer`** | `flash` | Native | Kiểm tra hook dependencies, RSC server/client boundaries, re-render performance. |
-| **`go-reviewer`** | `flash` | Native | Kiểm tra chuẩn idiomatic Go, goroutine leaks qua context, race detector compliance. |
-| **`rust-reviewer`** | `flash` | Native | Kiểm tra borrow checker, loại bỏ `.unwrap()` trong production code, an toàn `unsafe`. |
-| **`database-reviewer`** | `flash` | Native | Thẩm định index khóa ngoại, tối ưu RLS, cursor pagination, khóa hàng `SKIP LOCKED`. |
-| **`security-reviewer`** | `pro` | Native | Quét OWASP Top 10, auth bypass, path traversal, hardcoded secrets, injection vectors. |
-| **`performance-optimizer`** | `flash` | Native | Rà soát $O(n^2)$, N+1 queries, memory leaks, kiểm soát bundle JS (<200KB). |
-| **`silent-failure-hunter`** | `flash` | Native | Phát hiện swallowed exceptions, empty catch blocks, fallback trả rỗng, thiếu transaction rollback. |
-| **`build-error-resolver`** | `flash` | Native | Khắc phục lỗi compiler, import hỏng, dependency thiếu với diff < 5% file. |
-| **`refactor-cleaner`** | `flash` | Native | Loại bỏ dead code, unused exports, duplicate logic bằng `knip` / `ts-prune`. |
-| **`e2e-runner`** | `flash` | Native | Viết và chạy test user journey thực tế, cô lập test chập chờn với `test.fixme()`. |
+| **`chief-of-staff`** | `pro` | Antigravity Native | Executive orchestrator: ingests initiatives, triages priorities, and oversees delivery milestones. |
+| **`planner`** | `flash` | Antigravity Native | Task breakdown across 4 phases: Minimum Viable Slice (MVS) $\rightarrow$ Core $\rightarrow$ Resilience $\rightarrow$ Polish. |
+| **`code-architect`** | `pro` | Antigravity Native | Principal system design, entity models, REST/gRPC schemas, and Architecture Decision Records (ADRs). |
+| **`clean-room-builder`** | `pro` | Antigravity Native | Surgical implementation from approved specifications, isolated from legacy source code leakage. |
+| **`jev`** | `flash` | **OpenRouter Gate** | Epistemic gatekeeper: executes `jev` (`typesafe/jev-1.13`) for determinism and evidence audits. |
+| **`python-reviewer`** | `flash` | Antigravity Native | Enforces PEP 8, mypy strict typing, async/await correctness; bans bare `except: pass` and SQL injections. |
+| **`typescript-reviewer`** | `flash` | Antigravity Native | Verifies type soundness, eliminates unjustified `any`, detects floating promises and async misuse. |
+| **`react-reviewer`** | `flash` | Antigravity Native | Audits hook dependencies, Server/Client component boundaries (RSC), re-render efficiency, and XSS. |
+| **`go-reviewer`** | `flash` | Antigravity Native | Verifies idiomatic Go error wrapping (`%w`), goroutine leak prevention via `context.Context`, race safety. |
+| **`rust-reviewer`** | `flash` | Antigravity Native | Audits borrow-checker semantics, eliminates production `.unwrap()`, enforces `// SAFETY:` rationale on `unsafe`. |
+| **`database-reviewer`** | `flash` | Antigravity Native | Reviews foreign key indexes, RLS security queries, cursor pagination, and `SKIP LOCKED` worker queues. |
+| **`security-reviewer`** | `pro` | Antigravity Native | Comprehensive threat modeling: OWASP Top 10, auth bypass, path traversal, hardcoded secrets, injection. |
+| **`performance-optimizer`** | `flash` | Antigravity Native | Latency profiling, memory leak detection, N+1 query elimination, bundle size budgets (<200KB JS). |
+| **`silent-failure-hunter`** | `flash` | Antigravity Native | Detects swallowed exceptions, empty catch blocks, bad fallback returns (`.catch(() => [])`), missing rollbacks. |
+| **`build-error-resolver`** | `flash` | Antigravity Native | Minimal-diff error repair (<5% file delta): resolves broken imports, missing dependencies, compiler errors. |
+| **`refactor-cleaner`** | `flash` | Antigravity Native | Safe dead code pruning, orphaned export removal, and duplicate consolidation using static analysis. |
+| **`e2e-runner`** | `flash` | Antigravity Native | Authors and executes automated user journeys; immediately quarantines flaky tests via `test.fixme()`. |
 
 ---
 
-## 2. Chiến Lược Tối Ưu Chi Phí & Bảo Mật
+## 2. Cost Optimization & Security Perimeter
 
-1. **Phân Tầng Model Triệt Để**:
-   - **13/17 sub-agents (76.5%)** được cấu hình chạy tầng `model: flash` (`MODEL_TIER_FLASH`) để tối ưu tốc độ và tiết kiệm tài nguyên.
-   - Chỉ **4/17 sub-agents (23.5%)** cốt lõi được cấu hình tầng `model: pro` (`MODEL_TIER_PRO`).
-2. **Không Rò Rỉ API Key**:
-   - 100% các sub-agents thông thường chạy **hoàn toàn Native** trên Antigravity (0 đồng chi phí ngoài).
-   - `OPENROUTER_API_KEY` được bảo lưu duy nhất cho CLI `jev` chạy model `typesafe/jev-1.13` để thẩm định chất lượng đặc tả/prompt.
+1. **Aggressive Model Tiering**:
+   - **13 of 17 sub-agents (76.5%)** operate on `model: flash` (`MODEL_TIER_FLASH`) to maximize throughput, minimize latency, and reduce token consumption.
+   - Only **4 of 17 sub-agents (23.5%)** are assigned `model: pro` (`MODEL_TIER_PRO`), strictly reserved for high-reasoning coordination, architectural synthesis, clean-room implementation, and deep security analysis.
+2. **Strict Zero-OpenRouter Leakage Policy**:
+   - 100% of sub-agent reasoning, code writing, and reviews execute natively on Antigravity infrastructure.
+   - The `OPENROUTER_API_KEY` is **exclusively reserved for `typesafe/jev-1.13`** invoked through the `jev` CLI binary for formal specification audits.
+   - No sub-agent prompt, script, or automated hook transmits data to external third-party model gateways.
 
 ---
 
-## 3. Cài Đặt Nhanh (Quickstart)
+## 3. Quickstart Guide
 
-### Clone & Cài đặt 1-Click vào Antigravity:
+### 1-Click Installation (Antigravity & Supported Environments):
 ```bash
 git clone https://github.com/TGalioAutomation/antigravity-software-company.git
 cd antigravity-software-company
 ./install.sh
 ```
 
-### Chạy bộ kiểm thử xác minh (Verification):
+### Run Full System Verification:
 ```bash
 ./verify.sh
 ```
 
-### Gỡ cài đặt:
+### Clean Uninstallation:
 ```bash
 ./uninstall.sh
 ```
 
 ---
 
-## 4. Cấu Trúc Thư Mục Repository (Tích Hợp Trọn Bộ Tài Nguyên Chất Lượng Cao)
+## 4. Repository Layout & Asset Catalog
 
-Toàn bộ tinh hoa từ `affaan-m/ecc` đã được trích xuất, chuẩn hóa và **đóng gói sẵn 100% nội bộ** bên trong repository này (không cần tải hay phụ thuộc vào repo ngoài khi sử dụng):
+All high-value capabilities from `affaan-m/ecc` have been standardized, enriched, and packaged as self-contained local resources:
 
 ```text
 antigravity-software-company/
-├── software-company/              # 🚀 Plugin Antigravity Độc Lập (Active Runtime)
-│   ├── plugin.json                # Plugin manifest (Spec 1.0.0)
-│   ├── README.md                  # Tài liệu chi tiết plugin
-│   ├── assets/logo.svg            # Logo nhận diện
-│   ├── agents/                    # 17 Sub-Agents nòng cốt (4 Pro / 13 Flash)
-│   ├── rules/AGENTS.md            # Quy tắc điều phối & vận hành công ty
-│   └── skills/                    # 26 Core Engineering Skills nạp sẵn (preloadSkills) cho 17 Agents
+├── software-company/              # 🚀 Standalone Antigravity Plugin (Spec 1.0.0)
+│   ├── plugin.json                # Plugin manifest auto-discovered by Language Server
+│   ├── README.md                  # Detailed plugin architectural documentation
+│   ├── assets/logo.svg            # Identity branding
+│   ├── agents/                    # 17 Core Sub-Agents (4 Pro / 13 Flash)
+│   ├── rules/AGENTS.md            # Organizational governance rules & SDLC workflows
+│   └── skills/                    # 26 Preloaded Core Engineering Skills (preloadSkills)
 │       ├── api-design/            ├── golang-patterns/       ├── python-testing/
 │       ├── architecture-decision-records/ ├── golang-testing/ ├── react-patterns/
 │       ├── backend-patterns/      ├── postgres-patterns/     ├── rust-patterns/
@@ -117,14 +118,14 @@ antigravity-software-company/
 │       ├── docker-patterns/       ├── eval-harness/          ├── strategic-compact/
 │       ├── frontend-patterns/     ├── search-first/          ├── tdd-workflow/
 │       └── continuous-learning/   └── verification-loop/
-├── skills/                        # 📚 Kho 314 Skills Toàn Diện (Full Standalone Library)
-├── rules/                         # 📏 22 Bộ Quy Chuẩn Ngôn Ngữ (common, ts, python, go, rust, react, web...)
-├── commands/                      # ⚡ 97 Slash Commands & Workflows (plan, prp, orch-*, code-review...)
-├── contexts/                      # 🎯 3 Context Modes (dev.md, research.md, review.md)
-├── agents-catalog/                # 🧩 Kho 71 Sub-Agents Chuyên Sâu Mở Rộng (Flutter, Django, Java, Kotlin, C++, MLE...)
-├── tests/                         # 🧪 Bộ Kiểm Thử E2E & Acceptance (21/21 tests PASS)
-├── install.sh                     # Script cài đặt tự động 1-click toàn bộ Plugin + Skills + Rules
-├── uninstall.sh                   # Script gỡ bỏ sạch sẽ
-├── verify.sh                      # Script chạy toàn bộ test xác minh
-└── README.md                      # Tài liệu tổng quan này
+├── skills/                        # 📚 Standalone Engineering Library (314 domain skills)
+├── rules/                         # 📏 22 Language & Framework Rule Sets (common, ts, py, go, rust...)
+├── commands/                      # ⚡ 97 Slash Commands & Workflows (plan, prp, orch-*, review...)
+├── contexts/                      # 🎯 3 Context Profiles (dev.md, research.md, review.md)
+├── agents-catalog/                # 🧩 Extended Catalog of 71 Domain Agents (Flutter, Django, MLE...)
+├── tests/                         # 🧪 Automated Multi-Tier Test Suites (21/21 E2E tests PASS)
+├── install.sh                     # Cross-platform 1-click automated installer
+├── uninstall.sh                   # Clean uninstaller script
+├── verify.sh                      # Unified verification runner
+└── README.md                      # Primary documentation
 ```

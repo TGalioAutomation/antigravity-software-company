@@ -460,7 +460,8 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
         self.assertTrue(SAMPLE_SPEC_PATH.exists(), f"Sample spec not found at {SAMPLE_SPEC_PATH}")
 
         proc = subprocess.run(
-            [str(JEV_BIN), "--audit", str(SAMPLE_SPEC_PATH)],
+            [str(JEV_BIN), "--audit", str(SAMPLE_SPEC_PATH.name)],
+            cwd=str(SAMPLE_SPEC_PATH.parent),
             capture_output=True,
             text=True,
             timeout=45,

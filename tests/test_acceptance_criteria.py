@@ -380,7 +380,8 @@ def test_sample_jev_audit() -> tuple[bool, list[str]]:
 
     try:
         proc = subprocess.run(
-            [str(JEV_BIN), "--audit", str(SAMPLE_SPEC_PATH)],
+            [str(JEV_BIN), "--audit", str(SAMPLE_SPEC_PATH.name)],
+            cwd=str(SAMPLE_SPEC_PATH.parent),
             capture_output=True,
             text=True,
             timeout=45,

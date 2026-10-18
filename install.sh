@@ -34,19 +34,39 @@ if [ -n "${ANTIGRAVITY_LS_ADDRESS:-}" ] && [ -n "${ANTIGRAVITY_CSRF_TOKEN:-}" ];
   echo "✓ Enabled plugin dynamically in Antigravity"
 fi
 
-# 3. Optional: Sync agents to other IDE/CLI discovery dirs if they exist
-SYNC_TARGETS=(
+# 3. Install skills into Antigravity skills directory
+mkdir -p "$HOME/.gemini/config/skills"
+cp -Rf "$SCRIPT_DIR/skills/"* "$HOME/.gemini/config/skills/"
+echo "✓ Installed skills to $HOME/.gemini/config/skills"
+
+# 4. Optional: Sync agents and skills to other IDE/CLI discovery dirs if they exist
+SYNC_AGENTS=(
   "$HOME/.zcode/agents"
   "$HOME/.claude/agents"
   "$HOME/.cursor/agents"
   "$HOME/.config/opencode/agents"
 )
 
-for target in "${SYNC_TARGETS[@]}"; do
+for target in "${SYNC_AGENTS[@]}"; do
   if [ -d "$(dirname "$target")" ]; then
     mkdir -p "$target"
     cp -f "$PLUGIN_SOURCE/agents/"*.md "$target/" 2>/dev/null || true
     echo "✓ Synced 17 sub-agents to $target"
+  fi
+done
+
+SYNC_SKILLS=(
+  "$HOME/.claude/skills"
+  "$HOME/.cursor/skills"
+  "$HOME/.config/opencode/skills"
+  "$HOME/.zcode/skills"
+)
+
+for target in "${SYNC_SKILLS[@]}"; do
+  if [ -d "$(dirname "$target")" ]; then
+    mkdir -p "$target"
+    cp -Rf "$SCRIPT_DIR/skills/"* "$target/" 2>/dev/null || true
+    echo "✓ Synced skills to $target"
   fi
 done
 

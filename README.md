@@ -97,18 +97,25 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
 
 ```text
 /Users/apexdev/Desktop/plugin-buildin/
-├── software-company/              # Thư mục Plugin độc lập
+├── software-company/              # Thư mục Plugin độc lập cho Antigravity
 │   ├── plugin.json                # Plugin manifest (Spec 1.0.0)
 │   ├── README.md                  # Hướng dẫn chi tiết plugin
 │   ├── assets/logo.svg            # Logo nhận diện
 │   ├── agents/                    # 17 định dạng agent.md chuẩn Antigravity
 │   ├── rules/AGENTS.md            # Quy tắc điều phối & vận hành công ty
-│   └── skills/                    # Skill workflow của công ty
+│   └── skills/                    # Skills tích hợp trong plugin
+├── skills/                        # Thư mục Skills dùng chung (toàn cục)
+│   ├── prompt-master/             # Skill Always-On Prompt Architect
+│   ├── clean-room/                # Skill Clean-Room Rebuild Isolation
+│   ├── software-company-workflow/ # Skill quy trình phối hợp công ty
+│   ├── architecture-decision-records/ # Skill lập tài liệu kiến trúc (ADR)
+│   ├── api-design/                # Skill thiết kế REST/GraphQL/gRPC APIs
+│   └── backend-patterns/          # Skill kiến trúc backend & database
 ├── tests/                         # Bộ kiểm thử E2E & Acceptance
 │   ├── test_acceptance_criteria.py
 │   ├── test_e2e_suite.py
 │   └── test_adversarial_challenge_2.py
-├── install.sh                     # Script cài đặt tự động 1-click
+├── install.sh                     # Script cài đặt tự động 1-click (Plugin + Skills)
 ├── uninstall.sh                   # Script gỡ bỏ sạch sẽ
 ├── verify.sh                      # Script chạy toàn bộ test xác minh
 └── README.md                      # Tài liệu tổng quan này

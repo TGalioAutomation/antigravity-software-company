@@ -76,8 +76,10 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
 
 ## 3. Cài Đặt Nhanh (Quickstart)
 
-### Cài đặt vào Antigravity:
+### Clone & Cài đặt 1-Click vào Antigravity:
 ```bash
+git clone https://github.com/TGalioAutomation/antigravity-software-company.git
+cd antigravity-software-company
 ./install.sh
 ```
 
@@ -98,7 +100,7 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
 Toàn bộ tinh hoa từ `affaan-m/ecc` đã được trích xuất, chuẩn hóa và **đóng gói sẵn 100% nội bộ** bên trong repository này (không cần tải hay phụ thuộc vào repo ngoài khi sử dụng):
 
 ```text
-/Users/apexdev/Desktop/plugin-buildin/
+antigravity-software-company/
 ├── software-company/              # 🚀 Plugin Antigravity Độc Lập (Active Runtime)
 │   ├── plugin.json                # Plugin manifest (Spec 1.0.0)
 │   ├── README.md                  # Tài liệu chi tiết plugin

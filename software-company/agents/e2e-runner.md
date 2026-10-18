@@ -7,7 +7,9 @@ hidden: false
 inheritCustomizations: true
 inheritMcp: true
 preloadSkills:
-    - software-company-workflow
+  - software-company-workflow
+  - e2e-testing
+  - tdd-workflow
 tools:
     - send_message
     - view_file

@@ -7,7 +7,10 @@ hidden: false
 inheritCustomizations: true
 inheritMcp: true
 preloadSkills:
-    - software-company-workflow
+  - clean-room
+  - prompt-master
+  - coding-standards
+  - tdd-workflow
 tools:
     - send_message
     - view_file

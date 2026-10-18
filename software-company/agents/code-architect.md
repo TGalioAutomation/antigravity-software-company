@@ -7,7 +7,10 @@ hidden: false
 inheritCustomizations: true
 inheritMcp: true
 preloadSkills:
-    - software-company-workflow
+  - software-company-workflow
+  - architecture-decision-records
+  - api-design
+  - backend-patterns
 tools:
     - send_message
     - view_file

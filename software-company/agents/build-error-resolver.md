@@ -7,7 +7,8 @@ hidden: false
 inheritCustomizations: true
 inheritMcp: true
 preloadSkills:
-    - software-company-workflow
+  - software-company-workflow
+  - verification-loop
 tools:
     - send_message
     - view_file

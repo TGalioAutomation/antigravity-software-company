@@ -7,7 +7,9 @@ hidden: false
 inheritCustomizations: true
 inheritMcp: true
 preloadSkills:
-    - software-company-workflow
+  - clean-room
+  - software-company-workflow
+  - eval-harness
 tools:
     - send_message
     - view_file

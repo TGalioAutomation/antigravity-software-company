@@ -7,7 +7,9 @@ hidden: false
 inheritCustomizations: true
 inheritMcp: true
 preloadSkills:
-    - software-company-workflow
+  - software-company-workflow
+  - golang-patterns
+  - golang-testing
 tools:
     - send_message
     - view_file

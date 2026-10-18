@@ -93,29 +93,35 @@ Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng 
 
 ---
 
-## 4. Cấu Trúc Thư Mục Repository
+## 4. Cấu Trúc Thư Mục Repository (Tích Hợp Trọn Bộ Tài Nguyên Chất Lượng Cao)
+
+Toàn bộ tinh hoa từ `affaan-m/ecc` đã được trích xuất, chuẩn hóa và **đóng gói sẵn 100% nội bộ** bên trong repository này (không cần tải hay phụ thuộc vào repo ngoài khi sử dụng):
 
 ```text
 /Users/apexdev/Desktop/plugin-buildin/
-├── software-company/              # Thư mục Plugin độc lập cho Antigravity
+├── software-company/              # 🚀 Plugin Antigravity Độc Lập (Active Runtime)
 │   ├── plugin.json                # Plugin manifest (Spec 1.0.0)
-│   ├── README.md                  # Hướng dẫn chi tiết plugin
+│   ├── README.md                  # Tài liệu chi tiết plugin
 │   ├── assets/logo.svg            # Logo nhận diện
-│   ├── agents/                    # 17 định dạng agent.md chuẩn Antigravity
+│   ├── agents/                    # 17 Sub-Agents nòng cốt (4 Pro / 13 Flash)
 │   ├── rules/AGENTS.md            # Quy tắc điều phối & vận hành công ty
-│   └── skills/                    # Skills tích hợp trong plugin
-├── skills/                        # Thư mục Skills dùng chung (toàn cục)
-│   ├── prompt-master/             # Skill Always-On Prompt Architect
-│   ├── clean-room/                # Skill Clean-Room Rebuild Isolation
-│   ├── software-company-workflow/ # Skill quy trình phối hợp công ty
-│   ├── architecture-decision-records/ # Skill lập tài liệu kiến trúc (ADR)
-│   ├── api-design/                # Skill thiết kế REST/GraphQL/gRPC APIs
-│   └── backend-patterns/          # Skill kiến trúc backend & database
-├── tests/                         # Bộ kiểm thử E2E & Acceptance
-│   ├── test_acceptance_criteria.py
-│   ├── test_e2e_suite.py
-│   └── test_adversarial_challenge_2.py
-├── install.sh                     # Script cài đặt tự động 1-click (Plugin + Skills)
+│   └── skills/                    # 26 Core Engineering Skills nạp sẵn (preloadSkills) cho 17 Agents
+│       ├── api-design/            ├── golang-patterns/       ├── python-testing/
+│       ├── architecture-decision-records/ ├── golang-testing/ ├── react-patterns/
+│       ├── backend-patterns/      ├── postgres-patterns/     ├── rust-patterns/
+│       ├── clean-room/            ├── prompt-master/         ├── rust-testing/
+│       ├── coding-standards/      ├── python-patterns/       ├── security-review/
+│       ├── database-migrations/   ├── e2e-testing/           ├── software-company-workflow/
+│       ├── docker-patterns/       ├── eval-harness/          ├── strategic-compact/
+│       ├── frontend-patterns/     ├── search-first/          ├── tdd-workflow/
+│       └── continuous-learning/   └── verification-loop/
+├── skills/                        # 📚 Kho 314 Skills Toàn Diện (Full Standalone Library)
+├── rules/                         # 📏 22 Bộ Quy Chuẩn Ngôn Ngữ (common, ts, python, go, rust, react, web...)
+├── commands/                      # ⚡ 97 Slash Commands & Workflows (plan, prp, orch-*, code-review...)
+├── contexts/                      # 🎯 3 Context Modes (dev.md, research.md, review.md)
+├── agents-catalog/                # 🧩 Kho 71 Sub-Agents Chuyên Sâu Mở Rộng (Flutter, Django, Java, Kotlin, C++, MLE...)
+├── tests/                         # 🧪 Bộ Kiểm Thử E2E & Acceptance (21/21 tests PASS)
+├── install.sh                     # Script cài đặt tự động 1-click toàn bộ Plugin + Skills + Rules
 ├── uninstall.sh                   # Script gỡ bỏ sạch sẽ
 ├── verify.sh                      # Script chạy toàn bộ test xác minh
 └── README.md                      # Tài liệu tổng quan này

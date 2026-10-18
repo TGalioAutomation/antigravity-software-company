@@ -5,12 +5,12 @@
 - **Thresholds**: Evidence >= `0.5`, Deterministic >= `0.5`, Clean-Room >= `0.6`
 
 ## [1] RULE-001: Deterministic Numeric Boundary Clamping
-- **Final Gate Verdict**: `APPROVED` (**PASS**, confidence: `0.60`)
-- **Scores (`noul`)**: Evidence=`0.61` | Deterministic=`0.73` | Clean-Room Safe=`0.68`
-- **Probabilities**: `{"APPROVED": 0.7, "REJECT_MISSING_EVIDENCE": 0.06, "REJECT_AMBIGUOUS": 0.01, "REJECT_CODE_LEAK": 0.23}`
+- **Final Gate Verdict**: `APPROVED` (**PASS**, confidence: `0.55`)
+- **Scores (`noul`)**: Evidence=`0.65` | Deterministic=`0.72` | Clean-Room Safe=`0.74`
+- **Probabilities**: `{"APPROVED": 0.66, "REJECT_MISSING_EVIDENCE": 0.05, "REJECT_AMBIGUOUS": 0.02, "REJECT_CODE_LEAK": 0.27}`
 
 ## [2] RULE-002: Deterministic String Truncation with Ellipsis Suffix
-- **Final Gate Verdict**: `APPROVED` (**PASS**, confidence: `0.60`)
-- **Scores (`noul`)**: Evidence=`0.63` | Deterministic=`0.54` | Clean-Room Safe=`0.73`
-- **Probabilities**: `{"APPROVED": 0.7, "REJECT_MISSING_EVIDENCE": 0.03, "REJECT_AMBIGUOUS": 0.04, "REJECT_CODE_LEAK": 0.23}`
+- **Final Gate Verdict**: `APPROVED` (**PASS**, confidence: `0.59`)
+- **Scores (`noul`)**: Evidence=`0.62` | Deterministic=`0.58` | Clean-Room Safe=`0.73`
+- **Probabilities**: `{"APPROVED": 0.69, "REJECT_MISSING_EVIDENCE": 0.03, "REJECT_AMBIGUOUS": 0.04, "REJECT_CODE_LEAK": 0.24}`
 

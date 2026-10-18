@@ -1,6 +1,6 @@
 # Enterprise AI Software Company (`software-company`)
 
-An autonomous, multi-agent enterprise software engineering organization packaged as a native Antigravity Plugin. Built upon battle-tested agent patterns ported from `affaan-m/ecc`, this plugin establishes a self-governing virtual software company capable of planning, architecting, implementing, reviewing, and verifying complex software deliverables.
+An autonomous, multi-agent enterprise software engineering organization packaged as a native Antigravity Plugin. **100% self-contained and standalone with zero external dependencies**, this plugin establishes a self-governing virtual software company capable of planning, architecting, implementing, reviewing, and verifying complex software deliverables.
 
 ---
 

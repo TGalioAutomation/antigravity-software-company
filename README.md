@@ -1,6 +1,6 @@
 # Enterprise Software Company — Antigravity Agent Plugin
 
-Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng và đóng gói chuyên biệt cho Google Antigravity (và đồng bộ với Claude Code, Cursor, ZCode, OpenCode), kế thừa và chuẩn hóa 17 sub-agents nòng cốt từ [`affaan-m/ecc`](https://github.com/affaan-m/ecc).
+Hệ thống **Công Ty Phần Mềm AI Tự Vận Hành** được xây dựng và đóng gói **hoàn toàn độc lập, khép kín (100% Standalone & Self-Contained)** cho Google Antigravity (và đồng bộ với Claude Code, Cursor, ZCode, OpenCode). Hệ thống tích hợp sẵn 17 sub-agents nòng cốt và bộ skills nội bộ mà **hoàn toàn không phụ thuộc vào bất kỳ thư viện hay repository bên ngoài nào**.
 
 ---
 
